@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: API de Produtos Delivery
+  version: 1.0.0
+  description: Catálogo de produtos do Zé e iFood com imagens hospedadas
+
+paths:
+  /ze-delivery:
+    get:
+      summary: Lista todos os produtos do Zé Delivery
+      responses:
+        '200':
+          description: Lista de produtos do Zé Delivery
+
+  /ze-delivery/{id}:
+    get:
+      summary: Retorna produto do Zé Delivery por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Produto encontrado
+        '404':
+          description: Produto não encontrado
+
+  /ze-delivery/categoria/{categoria}:
+    get:
+      summary: Lista produtos do Zé Delivery por categoria
+      parameters:
+        - in: path
+          name: categoria
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de produtos filtrados por categoria
+
+  /ifood:
+    get:
+      summary: Lista todos os produtos do iFood
+      responses:
+        '200':
+          description: Lista de produtos do iFood
+
+  /ifood/{id}:
+    get:
+      summary: Retorna produto do iFood por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Produto encontrado
+        '404':
+          description: Produto não encontrado
+
+  /ifood/categoria/{categoria}:
+    get:
+      summary: Lista produtos do iFood por categoria
+      parameters:
+        - in: path
+          name: categoria
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de produtos filtrados por categoria
